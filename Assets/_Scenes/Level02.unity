@@ -400,8 +400,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1887892542}
-  - {fileID: 1199741110}
+  - {fileID: 2038046148}
   - {fileID: 1245251803}
   m_Father: {fileID: 843071702}
   m_RootOrder: 0
@@ -609,19 +608,19 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199741109}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1841115188}
   - {fileID: 1288441084}
   - {fileID: 269830213}
-  m_Father: {fileID: 631380938}
+  m_Father: {fileID: 2038046148}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -294}
   m_SizeDelta: {x: 555, y: 70}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1199741111
@@ -685,7 +684,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 631380938}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1108,17 +1107,17 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1887892541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1589646104}
-  m_Father: {fileID: 631380938}
+  m_Father: {fileID: 2038046148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 294}
   m_SizeDelta: {x: 555, y: 38}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1887892543
@@ -1164,7 +1163,7 @@ GameObject:
   - component: {fileID: 2038046148}
   - component: {fileID: 2038046147}
   m_Layer: 0
-  m_Name: SceneScript
+  m_Name: GateReader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1181,10 +1180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9529b92b4a741141b1e0f69f8893b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CORRECT_ANSWER: kabul
-  FAIL_MESSAGE: ACCESS DENIED
+  PASSWORD: kabul
+  MESSAGE: ACCESS DENIED
+  nextSceneName: Level02
   passwordInput: {fileID: 269830214}
-  hintTextField: {fileID: 1589646105}
   textMessage: {fileID: 1589646105}
 --- !u!4 &2038046148
 Transform:
@@ -1195,7 +1194,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Children:
+  - {fileID: 1887892542}
+  - {fileID: 1199741110}
+  m_Father: {fileID: 631380938}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Level01 : MonoBehaviour
+public class LevelController : MonoBehaviour
 {
 
-    public string CORRECT_ANSWER = "kabul";
-    public string FAIL_MESSAGE = "ACCESS DENIED";
+    public string PASSWORD = "kabul";
+    public string MESSAGE = "ACCESS DENIED";
+    public string nextSceneName = "";
+
     public InputField passwordInput;
-    public Text hintTextField;
     public Text textMessage;
 
 
     private bool CheckAnswer(string answer)
     {
-        if (answer.Equals(CORRECT_ANSWER))
+        if (answer.Equals(PASSWORD))
         {
             return true;
         }
@@ -28,13 +29,12 @@ public class Level01 : MonoBehaviour
         string answer = passwordInput.text;
         if (CheckAnswer(answer))
         {
-            TKSceneManager.ChangeScene(TKSceneManager.START_SCENE);
+            TKSceneManager.ChangeScene(nextSceneName);
         }
         else
         {
-            textMessage.text = FAIL_MESSAGE;
+            textMessage.text = MESSAGE;
             textMessage.color = Color.red;
-
             passwordInput.text = "";
         }
     }
