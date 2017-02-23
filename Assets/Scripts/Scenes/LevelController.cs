@@ -12,8 +12,20 @@ public class LevelController : MonoBehaviour
 
     public InputField passwordInput;
     public Text textMessage;
+    public string levelHintText = "name of the place";
 
-
+    private Coroutine hintCoroutine;
+    public List<GameObject> levelHints = new List<GameObject>();
+    private int currentHintIndex = 0;
+    public Button buttonHintNext;
+    void Start()
+    {
+        if (levelHints.Count > 1)
+        {
+            buttonHintNext.gameObject.SetActive(true);
+            DisplayNumberHint(currentHintIndex);
+        }
+    }
     private bool CheckAnswer(string answer)
     {
         if (answer.Equals(PASSWORD))
@@ -22,6 +34,28 @@ public class LevelController : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void OnNextHintButtonClicked()
+    {
+        currentHintIndex = ++currentHintIndex % levelHints.Count;
+        DisplayNumberHint(currentHintIndex);
+    }
+
+    private void DisplayNumberHint(int hintIndex)
+    {
+        for (int i =0; i < levelHints.Count;i++)
+        {
+            levelHints[i].SetActive(i == hintIndex);
+        }
+        if (currentHintIndex == levelHints.Count - 1)
+        {
+            buttonHintNext.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            buttonHintNext.transform.localScale = Vector3.one;
+        }
     }
 
     public void OnSubmitButtonClicked()
@@ -36,6 +70,18 @@ public class LevelController : MonoBehaviour
             textMessage.text = MESSAGE;
             textMessage.color = Color.red;
             passwordInput.text = "";
+
+            if (hintCoroutine == null)
+            {
+                hintCoroutine = StartCoroutine(ChangeHintTextBack(2f));
+            }
         }
+    }
+
+    private IEnumerator ChangeHintTextBack(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        textMessage.text = levelHintText;
+        textMessage.color = Color.black;
     }
 }

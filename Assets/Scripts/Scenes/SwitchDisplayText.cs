@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class SwitchDisplayText : MonoBehaviour {
 
-    public float rateTime = 1.5f;
+    public string LEVEL_TEXT = "LEVEL";
+    public string LEVEL_NUMBER = "1";
+
+    public float SWITCH_INTERVAL = 1.5f;
     private float countTime = 0;
-    public string text1 = "LEVEL";
-    public string text2 = "1";
-
-
     private Text mText;
 
     void Awake()
@@ -20,7 +19,7 @@ public class SwitchDisplayText : MonoBehaviour {
 
     void Update()
     {
-        if (countTime < rateTime)
+        if (countTime < SWITCH_INTERVAL)
         {
             countTime += Time.deltaTime;
 
@@ -28,14 +27,7 @@ public class SwitchDisplayText : MonoBehaviour {
         else
         {
             countTime = 0;
-            if (mText.text == text1)
-            {
-                mText.text = text2;
-            }
-            else
-            {
-                mText.text = text1;
-            }
+            mText.text = (mText.text == LEVEL_TEXT) ? LEVEL_NUMBER : LEVEL_TEXT;
         }
     }
 }
